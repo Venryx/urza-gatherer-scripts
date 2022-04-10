@@ -3,10 +3,10 @@
 Scripts for converting external MTG collection/deck data to a format that Urza Gatherer can import.
 
 Supported source formats:
-1) Delver Lens N, csv export of list.
+1) [Delver Lens N](https://play.google.com/store/apps/details?id=delverlab.delverlens), csv export of list.
 
 Supported output formats:
-1) Urza Gatherer database file (.ugs) [for use with its database "Merge" function]
+1) [Urza Gatherer](https://www.urzagatherer.com) database file (.ugs) [for use with its database "Merge" function]
 
 ### Preparation
 
