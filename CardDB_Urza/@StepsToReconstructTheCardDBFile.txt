@@ -1,0 +1,34 @@
+1) Urza code-mod to get card-data (use Chrome's source Overrides feature to apply the modification to its main `Urzagatherer.js` file)
+==========
+
+// before code: `i,se.Cards.push(l)}`
+
+(()=>{
+// custom
+window.mapping = window.mapping ?? [];
+window.mapping[l.id] = JSON.parse(JSON.stringify(l));
+})();
+
+// after code: `return l`
+
+2) JS code to run in dev-tools, to process the data for export (once executed, right click the json output and press "Copy string contents", then paste into the target file)
+==========
+cardKeysToKeep = [
+  "id", "multiverseIdEn", "multiverseIdFr", "nameEn", "scryfallNumber", "_cardMarketId", "_tcgPlayerId",
+  "nameEn", "shortNameEn", "_picturePath", 
+];
+
+resultStruct = [];
+for (let [id, card] of Object.entries(window.mapping)) {
+    resultStruct[id] = {};
+    for (let [key, value] of Object.entries(card)) {
+        if (cardKeysToKeep.includes(key)) {
+            resultStruct[id][key] = value;
+        }
+    }
+}
+JSON.stringify(resultStruct)
+
+3) Formatting (optional)
+==========
+* Once you've saved the database into a file, you may want to format it for easier reading. You can do this using various json-formatter tools. (I use the JSON Viewer extension in Notepad++)
