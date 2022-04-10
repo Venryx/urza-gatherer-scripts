@@ -1,0 +1,9 @@
+{
+  "name": "urza-gatherer-scripts",
+  "description": "Scripts for converting external MTG collection/deck data to a format that Urza Gatherer can import. ",
+  "version": "0.0.1",
+  "author": "Venryx (https://venryx.com)",
+  "private": true,
+  "devDependencies": {},
+  "dependencies": {}
+}
