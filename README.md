@@ -24,5 +24,5 @@ Supported output formats:
 3) Copy the file from "Preparation" step 6 to the repo's root folder, renaming it to `DelverExport.csv`.
 4) Open terminal in repo root, and run: `node DelverCSVToUrzaDB.js`
 5) If using Urza Gatherer on Android, copy the generated `UrzaImport.uga` file to your Android device.
-6) Go to Urza Gatherer -> Settings -> Merge from a file, press Merge, then select the `UrzaImport.uga` file.
+6) Go to Urza Gatherer -> Settings -> Merge from a file, press Merge, then select the `UrzaImport.ugs` file.
 7) The contents should now be merged into your collection! (if a card already existed in your collection, the count will be incremented by the amount present in the file)
