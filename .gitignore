@@ -1,2 +1,6 @@
 /DelverExport.csv
 /UrzaImport.ugs
+/InputFiles/*
+!/InputFiles/@PlaceYourInputFilesHere.txt
+/OutputFiles/*
+!/OutputFiles/@OutputFilesAreGeneratedHere.txt
