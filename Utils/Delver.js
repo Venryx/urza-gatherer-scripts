@@ -19,15 +19,19 @@ function PopulateUrzaDataFromFile(urzaData, file) {
 	let quantityX_columnIndex = columnIndexFor("QuantityX");
 	let cardName_columnIndex = columnIndexFor("Name");
 	let multiverseID_columnIndex = columnIndexFor("MultiverseID");
+	let tcgPlayerID_columnIndex = columnIndexFor("TCGPlayer productID");
 	if (quantityX_columnIndex == -1) {
 		console.warn(`Delver-export contains no "QuantityX" column; did you forget to enable that field during export? Import cannot continue with this column missing. Aborting...`);
 		process.exit();
 	}
 	if (multiverseID_columnIndex == -1) {
-		console.warn(`Delver-export contains no "MultiverseID" column; did you forget to enable that field during export? Falling back to card-name matching...`);
-		if (cardName_columnIndex == -1) {
-			console.warn(`Delver-export contains no "Name" column. Import cannot continue with both multiverse-id and card-name columns missing. Aborting...`);
-			process.exit();
+		console.warn(`Delver-export contains no "MultiverseID" column; did you forget to enable that field during export? Falling back to tcg-player-product-id matching...`);
+		if (tcgPlayerID_columnIndex == -1) {
+			console.warn(`Delver-export contains no "TCGPlayer productID" column; did you forget to enable that field during export? Falling back to card-name matching...`);
+			if (cardName_columnIndex == -1) {
+				console.warn(`Delver-export contains no "Name" column. Import cannot continue with multiverse-id, tcg-player-product-id, and card-name columns all missing. Aborting...`);
+				process.exit();
+			}
 		}
 	}
 
@@ -37,9 +41,10 @@ function PopulateUrzaDataFromFile(urzaData, file) {
 		let cells = line.split("\t");
 		let quantityX = cells[quantityX_columnIndex];
 		let multiverseID = cells[multiverseID_columnIndex];
+		let tcgPlayerID = cells[tcgPlayerID_columnIndex];
 		let cardName = cells[cardName_columnIndex];
 
-		let urzaCardID = FindUrzaCardID(multiverseID, cardName);
+		let urzaCardID = FindUrzaCardID(multiverseID, tcgPlayerID, cardName);
 		if (urzaCardID == null) {
 			if (multiverseID == 0 && cardName.endsWith(" Token")) {
 				console.log(`Skipping token card "${cardName}". (Urza doesn't track token cards)`);

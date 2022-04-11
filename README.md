@@ -14,7 +14,7 @@ Supported output formats:
 2) Click into the List you want to export.
 3) Press the "Export" icon in the top toolbar.
 4) Press the "Create CSV file" option.
-5) Ensure that the `MultiverseID` field is enabled for export in the export settings. (along with `QuantityX` and `Name`, which are enabled by default)
+5) Ensure that the `MultiverseID` and `TCGPlayer productID` fields are enabled for export in the export settings. (along with `QuantityX` and `Name`, which are enabled by default)
 6) Press "Download"; your csv file will be exported to the standard "Download" folder.
 
 ### Usage
