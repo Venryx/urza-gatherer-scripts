@@ -41,7 +41,11 @@ function PopulateUrzaDataFromFile(urzaData, file) {
 
 		let urzaCardID = FindUrzaCardID(multiverseID, cardName);
 		if (urzaCardID == null) {
-			console.log(`Skipping card, since could not find card in urza-database matching data from export:`, {multiverseID, cardName});
+			if (multiverseID == 0 && cardName.endsWith(" Token")) {
+				console.log(`Skipping token card "${cardName}". (Urza doesn't track token cards)`);
+			} else {
+				console.log(`Skipping card, since could not find card in urza-database matching data from export:`, {multiverseID, cardName});
+			}
 			continue;
 		}
 		
