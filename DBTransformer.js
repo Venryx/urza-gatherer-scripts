@@ -32,9 +32,10 @@ if (operation == "decrementCardCounts") {
 		let newCount = Math.max(0, oldCount - decrementAmount);
 		newData.Count[key] = newCount;
 
-		if (newCount == 0) {
+		// do this in cross-collection cleanup below
+		/*if (newCount == 0) {
 			delete newData.Count[key];
-		}
+		}*/
 	}
 
 	CleanUpUrzaDBData(newData);
