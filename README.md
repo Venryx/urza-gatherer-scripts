@@ -48,5 +48,5 @@ At the moment, the only operation it supports is decrementing the counts of card
 ### Usage
 
 1) Do general repo setup/installation. (see earlier section)
-2) Run: `node DBTransformer.js decrementCardCounts PATH_TO_BASE_FILE PATH_TO_EXCLUSION_FILE`
+2) Open terminal in repo root, and run: `node DBTransformer.js decrementCardCounts PATH_TO_BASE_FILE PATH_TO_EXCLUSION_FILE`
 3) A file named `Output_<date and time>.ugs` will be created in the repo-root; you can then load this into UrzaGatherer in the settings page.
