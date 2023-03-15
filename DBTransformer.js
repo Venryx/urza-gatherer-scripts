@@ -24,10 +24,12 @@ if (operation == "decrementCardCounts") {
 			console.warn(`Trying to decrement count of card ${key} by ${decrementAmount}. Failed, since card was not found in base file!`.padEnd(110, " ") + `@CardInfo:${BasicCardInfoForUrzaID(id)}`);
 			continue;
 		}
-		let newCount = oldCount - decrementAmount;
+
 		if (oldCount < decrementAmount) {
 			console.warn(`Trying to decrement count of card ${key} by ${decrementAmount}. Failed (partially), since base file only had ${oldCount} copies.`.padEnd(110, " ") + `@CardInfo:${BasicCardInfoForUrzaID(id)}`);
 		}
+		
+		let newCount = Math.max(0, oldCount - decrementAmount);
 		newData.Count[key] = newCount;
 
 		if (newCount == 0) {
