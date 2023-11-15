@@ -20,7 +20,7 @@ Supported output formats:
 Notes:
 * The conversion can only take place due to mapping of card-ids between various systems/databases. Naturally, this can only take place if the UrzaGatherer database that these scripts are referencing are up-to-date enough to include the cards being converted.
 * The copy of the UrzaGatherer card-database used by these scripts is located at: `CardDatabases/UrzaCardDB.json`
-* The urza card-db was last updated: **2023-03-15**
+* The urza card-db was last updated: **2023-11-14**
 * If the date above is not recent enough, running the scripts will log warnings for cards it can't identify. If needed/desired, you can update the card-database file yourself, by following the instructions in `CardDatabases/@UrzaCardDB_HowToUpdate.md`.
 
 ### Preparation
